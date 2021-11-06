@@ -1,0 +1,218 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0.2
+  StyleGuideBaseURL:  https://rubystyle.guide
+  Exclude:
+    - '**/*.lock'
+    - '**/db/**/*'
+    - '**/bin/**/*'
+
+Rails:
+  StyleGuideBaseURL:  https://rails.rubystyle.guide
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+Lint/DuplicateRescueException:
+  Enabled: true
+Lint/EmptyConditionalBody:
+  Enabled: true
+Lint/FloatComparison:
+  Enabled: true
+Lint/MissingSuper:
+  Enabled: true
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+Lint/SelfAssignment:
+  Enabled: true
+Lint/TopLevelReturnWithArgument:
+  Enabled: true
+Lint/UnreachableLoop:
+  Enabled: true
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Lint/DuplicateElsifCondition:
+  Enabled: true
+Lint/AmbiguousAssignment:
+  Enabled: true
+Lint/DeprecatedConstants:
+  Enabled: true
+Lint/DuplicateBranch:
+  Enabled: true
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+Lint/EmptyBlock:
+  Enabled: true
+Lint/EmptyClass:
+  Enabled: true
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: true
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+Lint/NumberedParameterAssignment:
+  Enabled: true
+Lint/OrAssignmentToConstant:
+  Enabled: true
+Lint/RedundantDirGlobSort:
+  Enabled: true
+Lint/SymbolConversion:
+  Enabled: true
+Lint/ToEnumArguments:
+  Enabled: true
+Lint/TripleQuotes:
+  Enabled: true
+Lint/UnexpectedBlockArity:
+  Enabled: true
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+Style/RedundantRegexpEscape:
+  Enabled: true
+Style/SlicingWithRange:
+  Enabled: true
+Style/RedundantFetchBlock:
+  Enabled: true
+Style/BisectedAttrAccessor:
+  Enabled: true
+Style/AccessorGrouping:
+  Enabled: true
+Style/RedundantAssignment:
+  Enabled: true
+Style/ArrayCoercion:
+  Enabled: true
+Style/CaseLikeIf:
+  Enabled: true
+Style/HashAsLastArrayItem:
+  Enabled: true
+Style/HashLikeCase:
+  Enabled: true
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+Style/ExplicitBlockArgument:
+  Enabled: true
+Style/GlobalStdStream:
+  Enabled: true
+Style/OptionalBooleanParameter:
+  Enabled: true
+Style/SingleArgumentDig:
+  Enabled: true
+Style/StringConcatenation:
+  Enabled: true
+Style/ArgumentsForwarding:
+  Enabled: true
+Style/CollectionCompact:
+  Enabled: true
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+Style/EndlessMethod:
+  Enabled: true
+Style/HashConversion:
+  Enabled: true
+Style/HashExcept:
+  Enabled: true
+Style/IfWithBooleanLiteralBranches:
+  Enabled: true
+Style/NegatedIfElseCondition:
+  Enabled: true
+Style/NilLambda:
+  Enabled: true
+Style/RedundantArgument:
+  Enabled: true
+Style/SwapValues:
+  Enabled: true
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+Rails/FindById:
+  Enabled: true
+Rails/Inquiry:
+  Enabled: true
+Rails/MailerName:
+  Enabled: true
+Rails/MatchRoute:
+  Enabled: true
+Rails/Pluck:
+  Enabled: true
+Rails/PluckInWhere:
+  Enabled: true
+Rails/WhereExists:
+  Enabled: true
+Rails/NegateInclude:
+  Enabled: true
+Rails/RenderInline:
+  Enabled: true
+Rails/PluckId:
+  Enabled: true
+Rails/RenderPlainText:
+  Enabled: true
+Rails/ShortI18n:
+  Enabled: true
+Rails/AfterCommitOverride:
+  Enabled: true
+Rails/AttributeDefaultBlockValue:
+  Enabled: true
+Rails/SquishedSQLHeredocs:
+  Enabled: true
+Rails/WhereEquals:
+  Enabled: true
+Rails/WhereNot:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: true
+Style/RescueStandardError:
+  Enabled: false
+
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedColonStyle: table
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - '**/config/**/*'
+    - '**/spec/**/*'
+    - '**/*.gemspec'
+Metrics/MethodLength:
+  Max: 50
+Metrics/ClassLength:
+  Max: 175
+
+RSpec/MultipleExpectations:
+  Max: 3
+RSpec/NamedSubject:
+  Enabled: false
+
+Gemspec/DateAssignment:
+  Enabled: true
