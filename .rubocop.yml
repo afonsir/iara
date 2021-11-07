@@ -140,6 +140,8 @@ Style/IfWithBooleanLiteralBranches:
   Enabled: true
 Style/NegatedIfElseCondition:
   Enabled: true
+Style/Lambda:
+  Enabled: false
 Style/NilLambda:
   Enabled: true
 Style/RedundantArgument:
@@ -183,6 +185,9 @@ Rails/WhereEquals:
   Enabled: true
 Rails/WhereNot:
   Enabled: true
+Rails/Delegate:
+  Exclude:
+    - 'lib/geo.rb'
 
 Style/Documentation:
   Enabled: false
