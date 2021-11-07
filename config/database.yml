@@ -1,11 +1,12 @@
 default: &default
-  adapter: postgresql
+  adapter: postgis
   encoding: unicode
   pool:     <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
   host:     <%= ENV.fetch('DB_HOST') { Rails.application.credentials.dig(Rails.env.to_sym, :db, :host) } %>
   username: <%= ENV.fetch('DB_USER') { Rails.application.credentials.dig(Rails.env.to_sym, :db, :user) } %>
   password: <%= ENV.fetch('DB_PASS') { Rails.application.credentials.dig(Rails.env.to_sym, :db, :pass) } %>
   port:     <%= ENV.fetch('DB_PORT') { Rails.application.credentials.dig(Rails.env.to_sym, :db, :port) } %>
+  schema_search_path: public
 
 development:
   <<: *default

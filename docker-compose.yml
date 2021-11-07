@@ -2,7 +2,10 @@ version: '3.7'
 
 services:
   postgresdb:
-    image: postgres:12.5-alpine
+    image: postgis:13.4
+    build:
+      context: .
+      dockerfile: Dockerfile.postgis
     container_name: postgresdb
     environment:
       POSTGRES_DB: ${DB_NAME}
