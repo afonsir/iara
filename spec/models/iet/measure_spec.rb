@@ -21,7 +21,9 @@ describe IET::Measure, type: :model do
     it { is_expected.to validate_presence_of(:category) }
     it { is_expected.to validate_presence_of(:type) }
     it { is_expected.to validate_presence_of(:value) }
-    it { is_expected.to validate_numericality_of(:value) }
+
+    it { is_expected.to validate_numericality_of(:value).is_greater_than_or_equal_to(0) }
+
     it { is_expected.to define_enum_for(:type).with_values(type_values) }
     it { is_expected.to define_enum_for(:category).with_values(category_values) }
 
