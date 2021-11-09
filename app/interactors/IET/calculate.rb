@@ -5,7 +5,7 @@ module IET
     include Interactor
 
     # input interface
-    delegate :cl_in_micrograms, :pt_in_micrograms, :type, to: :context
+    delegate :cl_in_micrograms, :pt_in_micrograms, :location_type, to: :context
 
     # internal aliases
     delegate :calculated_cl_value, :calculated_pt_value, to: :context
@@ -51,11 +51,11 @@ module IET
     end
 
     def reservatorios?
-      type == 'reservatorios'
+      location_type == 'reservatorios'
     end
 
     def rios?
-      type == 'rios'
+      location_type == 'rios'
     end
   end
 end

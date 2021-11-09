@@ -4,7 +4,7 @@ module IET
   class CalculateOrganizer
     include Interactor::Organizer
 
-    organize ValidateType,
+    organize ValidateLocationType,
       Calculate,
       DefineCategory
   end

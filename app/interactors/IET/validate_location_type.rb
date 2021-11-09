@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module IET
-  class ValidateType
+  class ValidateLocationType
     include Interactor
 
     # input interface
-    delegate :type, to: :context
+    delegate :location_type, to: :context
 
     def call
-      return if IET::Measure.location_types.keys.include? type.gsub(/\W+/, '').downcase
+      return if IET::Measure.location_types.keys.include? location_type.gsub(/\W+/, '').downcase
 
       context.fail!(error: validation_message)
     end
