@@ -12,7 +12,7 @@ describe IET::ValidateLocationType, type: :interactor do
   let(:validation_message) do
     I18n.t(
       'errors.format',
-      attribute: I18n.t('activerecord.attributes.iet/measure.type'),
+      attribute: I18n.t('activerecord.attributes.iet/measure.location_type'),
       message:   I18n.t('errors.messages.invalid')
     )
   end
