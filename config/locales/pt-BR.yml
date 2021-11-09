@@ -14,4 +14,5 @@ pt-BR:
       blank: não pode ficar em branco
       greater_than_or_equal_to: deve ser maior ou igual a %{count}
       invalid: não é válido
+      model_invalid: 'A validação falhou: %{errors}'
       not_a_number: não é um número
