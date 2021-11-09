@@ -8,7 +8,7 @@ module IET
     delegate :type, to: :context
 
     def call
-      return if IET::Measure.types.keys.include? type.gsub(/\W+/, '').downcase
+      return if IET::Measure.location_types.keys.include? type.gsub(/\W+/, '').downcase
 
       context.fail!(error: validation_message)
     end

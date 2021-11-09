@@ -6,7 +6,7 @@ pt-BR:
       iet/measure:
         category: Categoria
         coords: Coordenadas da medição
-        type: Tipo do local da medição
+        location_type: Tipo do local da medição
         value: Valor IET calculado
   errors:
     format: "%{attribute} %{message}"

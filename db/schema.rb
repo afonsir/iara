@@ -19,12 +19,13 @@ ActiveRecord::Schema.define(version: 2021_11_07_033443) do
   create_table "measures", force: :cascade do |t|
     t.geography "coords", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
     t.integer "category", limit: 2, null: false
-    t.integer "type", limit: 2, null: false
+    t.integer "location_type", limit: 2, null: false
     t.decimal "value", precision: 10, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category"], name: "index_measures_on_category"
     t.index ["coords"], name: "index_measures_on_coords", using: :gist
+    t.index ["location_type"], name: "index_measures_on_location_type"
   end
 
 end
