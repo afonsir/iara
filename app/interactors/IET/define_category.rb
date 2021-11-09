@@ -4,6 +4,7 @@ module IET
   class DefineCategory
     include Interactor
 
+    # input interface
     delegate :iet_value, to: :context
 
     def call

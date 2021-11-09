@@ -4,6 +4,7 @@ module IET
   class ValidateType
     include Interactor
 
+    # input interface
     delegate :type, to: :context
 
     def call
