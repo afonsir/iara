@@ -15,10 +15,16 @@ describe IET::Measure, type: :model do
       }
     end
 
+    let(:location_type_values) { { reservatorios: 0, rios: 1 } }
+
     it { is_expected.to validate_presence_of(:coords) }
     it { is_expected.to validate_presence_of(:category) }
+    it { is_expected.to validate_presence_of(:location_type) }
     it { is_expected.to validate_presence_of(:value) }
-    it { is_expected.to validate_numericality_of(:value) }
+
+    it { is_expected.to validate_numericality_of(:value).is_greater_than_or_equal_to(0) }
+
+    it { is_expected.to define_enum_for(:location_type).with_values(location_type_values) }
     it { is_expected.to define_enum_for(:category).with_values(category_values) }
 
     it 'is valid with valid attributes' do
