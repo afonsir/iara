@@ -7,20 +7,20 @@ describe IET::CreateMeasureOrganizer, type: :interactor do
 
   let(:params) do
     {
-      cl_in_micrograms: cl_in_micrograms,
-      pt_in_micrograms: pt_in_micrograms,
+      cl_in_micrograms: 10,
+      pt_in_micrograms: 10,
+      latitude:         Faker::Address.latitude,
+      longitude:        Faker::Address.longitude,
       location_type:    location_type
     }
   end
 
   let(:location_type) { IET::Measure.location_types.keys.sample }
 
-  let(:cl_in_micrograms) { 10 }
-  let(:pt_in_micrograms) { 10 }
-
   describe '.organized' do
     let(:interactors) do
       [
+        IET::ValidateCoordinates,
         IET::CalculateOrganizer,
         IET::CreateMeasure
       ]
