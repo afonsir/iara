@@ -9,7 +9,7 @@ describe IET::Calculate, type: :interactor do
     {
       cl_in_micrograms: cl_in_micrograms,
       pt_in_micrograms: pt_in_micrograms,
-      type:             type
+      location_type:    location_type
     }
   end
 
@@ -17,8 +17,8 @@ describe IET::Calculate, type: :interactor do
   let(:pt_in_micrograms) { 10 }
 
   describe '.call' do
-    context 'when type is reservatorios' do
-      let(:type) { 'reservatorios' }
+    context 'when location_type is reservatorios' do
+      let(:location_type) { 'reservatorios' }
 
       it { is_expected.to be_a_success }
 
@@ -27,8 +27,8 @@ describe IET::Calculate, type: :interactor do
       it { expect(interactor.iet_value).to be_within(0.00005).of(53.21907) }
     end
 
-    context 'when type is rios' do
-      let(:type) { 'rios' }
+    context 'when location_type is rios' do
+      let(:location_type) { 'rios' }
 
       it { is_expected.to be_a_success }
 

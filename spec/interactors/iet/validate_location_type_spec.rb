@@ -2,10 +2,12 @@
 
 require 'rails_helper'
 
-describe IET::ValidateType, type: :interactor do
-  subject(:interactor) { described_class.call(type: type) }
+describe IET::ValidateLocationType, type: :interactor do
+  subject(:interactor) { described_class.call(params) }
 
-  let(:type) { IET::Measure.location_types.keys.sample }
+  let(:params) { { location_type: location_type } }
+
+  let(:location_type) { IET::Measure.location_types.keys.sample }
 
   let(:validation_message) do
     I18n.t(
@@ -16,12 +18,12 @@ describe IET::ValidateType, type: :interactor do
   end
 
   describe '.call' do
-    context 'when type is valid' do
+    context 'when location_type is valid' do
       it { is_expected.to be_a_success }
     end
 
-    context 'when type is invalid' do
-      let(:type) { 'invalid_type' }
+    context 'when location_type is invalid' do
+      let(:location_type) { 'invalid_type' }
 
       it { is_expected.to be_a_failure }
 
@@ -30,8 +32,8 @@ describe IET::ValidateType, type: :interactor do
       end
     end
 
-    context 'when type is empty' do
-      let(:type) { '' }
+    context 'when location_type is empty' do
+      let(:location_type) { '' }
 
       it { is_expected.to be_a_failure }
 

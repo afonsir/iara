@@ -9,11 +9,11 @@ describe IET::CalculateOrganizer, type: :interactor do
     {
       cl_in_micrograms: cl_in_micrograms,
       pt_in_micrograms: pt_in_micrograms,
-      type:             type
+      location_type:    location_type
     }
   end
 
-  let(:type) { IET::Measure.location_types.keys.sample }
+  let(:location_type) { IET::Measure.location_types.keys.sample }
 
   let(:cl_in_micrograms) { 10 }
   let(:pt_in_micrograms) { 10 }
@@ -21,7 +21,7 @@ describe IET::CalculateOrganizer, type: :interactor do
   describe '.organized' do
     let(:interactors) do
       [
-        IET::ValidateType,
+        IET::ValidateLocationType,
         IET::Calculate,
         IET::DefineCategory
       ]
