@@ -2,8 +2,10 @@
 
 module IET
   class Measure < ApplicationRecord
-    validates :coords, :category, :value, presence: true
+    validates :coords, :category, :type, :value, presence: true
     validates :value, numericality: true
+
+    enum type: { reservatorios: 0, rios: 1 }
 
     enum category: {
       ultraoligotrofico: 0,
