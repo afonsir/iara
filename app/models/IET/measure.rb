@@ -3,7 +3,7 @@
 module IET
   class Measure < ApplicationRecord
     validates :coords, :category, :type, :value, presence: true
-    validates :value, numericality: true
+    validates :value, numericality: { greater_than_or_equal_to: 0 }
 
     enum type: { reservatorios: 0, rios: 1 }
 
