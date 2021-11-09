@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    iet/models:
+      measure: Medição
+    attributes:
+      iet/measure:
+        category: Categoria
+        coords: Coordenadas da medição
+        type: Tipo do local da medição
+        value: Valor IET calculado
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: não pode ficar em branco
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      invalid: não é válido
+      not_a_number: não é um número
