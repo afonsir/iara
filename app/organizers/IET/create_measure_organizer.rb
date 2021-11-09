@@ -4,7 +4,8 @@ module IET
   class CreateMeasureOrganizer
     include Interactor::Organizer
 
-    organize CalculateOrganizer,
+    organize ValidateCoordinates,
+      CalculateOrganizer,
       CreateMeasure
   end
 end
