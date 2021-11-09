@@ -5,7 +5,7 @@ require 'rails_helper'
 describe IET::ValidateType, type: :interactor do
   subject(:interactor) { described_class.call(type: type) }
 
-  let(:type) { IET::Measure.types.keys.sample }
+  let(:type) { IET::Measure.location_types.keys.sample }
 
   let(:validation_message) do
     I18n.t(

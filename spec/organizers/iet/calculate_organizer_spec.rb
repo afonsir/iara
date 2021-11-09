@@ -13,7 +13,7 @@ describe IET::CalculateOrganizer, type: :interactor do
     }
   end
 
-  let(:type) { IET::Measure.types.keys.sample }
+  let(:type) { IET::Measure.location_types.keys.sample }
 
   let(:cl_in_micrograms) { 10 }
   let(:pt_in_micrograms) { 10 }
