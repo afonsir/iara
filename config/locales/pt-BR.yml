@@ -1,13 +1,30 @@
 pt-BR:
   activerecord:
+    attributes:
+      measure: &measure-translations
+        coords: Coordenadas da medição
+        created_at: Data de criação da medição
+        id: ID da medição
+        iet_category: Classificação do Estado Trófico (IET)
+        iet_value: Valor do Índice de Estado Trófico (IET)
+        location_type: Tipo do local da medição
+        updated_at: Data de atualização da medição
+
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+
     models:
       measure: Medição
-    attributes:
-      measure:
-        coords: Coordenadas da medição
-        iet_category: Categoria
-        iet_value: Valor IET calculado
-        location_type: Tipo do local da medição
+
+  graphql:
+    types:
+      domain:
+        measure_type:
+          description: Medição de Índice de Estado Trópico (IET)
+          fields:
+            <<: *measure-translations
+
   errors:
     format: "%{attribute} %{message}"
     messages:
