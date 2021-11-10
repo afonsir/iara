@@ -30,6 +30,12 @@ pt-BR:
             supereutrofico: 'Corpos d’água com alta produtividade em relação às condições naturais, de baixa transparência, em geral afetados por atividades antrópicas, nos quais ocorrem com freqüência alterações indesejáveis na qualidade da água, como a ocorrência de episódios florações de algas, e interferências nos seus múltiplos usos.'
             ultraoligotrofico: 'Corpos d’água limpos, de produtividade muito baixa e concentrações insignificantes de nutrientes que não acarretam em prejuízos aos usos da água.'
 
+        location_type:
+          description: 'Tipos de locais (ou corpos d’água) da medição.'
+          values:
+            reservatorios: Reservatórios ou represas.
+            rios: Rios ou riachos.
+
         measure_type:
           description: Medição de Índice de Estado Trópico (IET)
           fields:
