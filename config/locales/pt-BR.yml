@@ -1,13 +1,13 @@
 pt-BR:
   activerecord:
-    iet/models:
+    models:
       measure: Medição
     attributes:
-      iet/measure:
-        category: Categoria
+      measure:
         coords: Coordenadas da medição
+        iet_category: Categoria
+        iet_value: Valor IET calculado
         location_type: Tipo do local da medição
-        value: Valor IET calculado
   errors:
     format: "%{attribute} %{message}"
     messages:
