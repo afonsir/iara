@@ -19,6 +19,7 @@ describe CalculateOrganizer, type: :interactor do
     let(:interactors) do
       [
         ValidateLocationType,
+        Validators::CalculateInput,
         Calculate,
         DefineCategory
       ]
