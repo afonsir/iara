@@ -13,6 +13,12 @@ describe Types::Domain::MeasureType do
   it { is_expected.to have_field(:updated_at).of_type('ISO8601DateTime!') }
 
   describe 'documentation' do
+    it 'returns general description' do
+      expect(described_class.description).to eq(
+        I18n.t('graphql.types.domain.measure_type.description')
+      )
+    end
+
     it 'returns ID description' do
       expect(described_class.fields['id'].description).to eq(
         I18n.t('graphql.types.domain.measure_type.fields.id')
