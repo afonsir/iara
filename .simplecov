@@ -10,6 +10,7 @@ SimpleCov.start do
   add_group 'Models',      'app/models'
   add_group 'Interactors', 'app/interactors'
   add_group 'Organizers',  'app/organizers'
+  add_group 'GraphQL',     'app/graphql'
   add_group 'Workers',     'app/workers'
   add_group 'Concerns',    ['app/concerns', 'app/controllers/concerns', 'app/models/concerns']
   add_group 'Support',     'app/support'
