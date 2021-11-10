@@ -2,28 +2,34 @@
 
 require 'rails_helper'
 
-describe IET::ValidateLocationType, type: :interactor do
+describe ValidateCoordinates, type: :interactor do
   subject(:interactor) { described_class.call(params) }
 
-  let(:params) { { location_type: location_type } }
+  let(:params) do
+    {
+      latitude:  latitude,
+      longitude: longitude
+    }
+  end
 
-  let(:location_type) { IET::Measure.location_types.keys.sample }
+  let(:latitude)  { Faker::Address.latitude }
+  let(:longitude) { Faker::Address.longitude }
 
   let(:validation_message) do
     I18n.t(
       'errors.format',
-      attribute: I18n.t('activerecord.attributes.iet/measure.location_type'),
-      message:   I18n.t('errors.messages.invalid')
+      attribute: I18n.t('activerecord.attributes.iet/measure.coords'),
+      message:   I18n.t('errors.messages.blank')
     )
   end
 
   describe '.call' do
-    context 'when location_type is valid' do
+    context 'when coordinates are present' do
       it { is_expected.to be_a_success }
     end
 
-    context 'when location_type is invalid' do
-      let(:location_type) { 'invalid_type' }
+    context 'when latitude is invalid' do
+      let(:latitude) { nil }
 
       it { is_expected.to be_a_failure }
 
@@ -32,8 +38,8 @@ describe IET::ValidateLocationType, type: :interactor do
       end
     end
 
-    context 'when location_type is empty' do
-      let(:location_type) { '' }
+    context 'when longitude is invalid' do
+      let(:longitude) { nil }
 
       it { is_expected.to be_a_failure }
 

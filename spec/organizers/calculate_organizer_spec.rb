@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe IET::CalculateOrganizer, type: :interactor do
+describe CalculateOrganizer, type: :interactor do
   subject(:organizer) { described_class.call(params) }
 
   let(:params) do
@@ -13,14 +13,14 @@ describe IET::CalculateOrganizer, type: :interactor do
     }
   end
 
-  let(:location_type) { IET::Measure.location_types.keys.sample }
+  let(:location_type) { Measure.location_types.keys.sample }
 
   describe '.organized' do
     let(:interactors) do
       [
-        IET::ValidateLocationType,
-        IET::Calculate,
-        IET::DefineCategory
+        ValidateLocationType,
+        Calculate,
+        DefineCategory
       ]
     end
 

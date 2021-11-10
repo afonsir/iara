@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe IET::CreateMeasure, type: :interactor do
+describe CreateMeasure, type: :interactor do
   subject(:interactor) { described_class.call(params) }
 
   let(:params) do
@@ -20,7 +20,7 @@ describe IET::CreateMeasure, type: :interactor do
   let(:validation_message) do
     I18n.t(
       'errors.format',
-      attribute: I18n.t('activerecord.attributes.iet/measure.location_type'),
+      attribute: I18n.t('activerecord.attributes.measure.location_type'),
       message:   I18n.t('errors.messages.blank')
     )
   end
@@ -30,7 +30,7 @@ describe IET::CreateMeasure, type: :interactor do
       it { is_expected.to be_a_success }
 
       it 'creates a measure record' do
-        expect { interactor }.to change(IET::Measure, :count).by(1)
+        expect { interactor }.to change(Measure, :count).by(1)
       end
 
       it 'returns a measure with expected latitude' do

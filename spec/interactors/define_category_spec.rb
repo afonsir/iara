@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe IET::DefineCategory, type: :interactor do
+describe DefineCategory, type: :interactor do
   subject(:interactor) { described_class.call(iet_value: value) }
 
   describe '.call' do

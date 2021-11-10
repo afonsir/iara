@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe IET::Calculate, type: :interactor do
+describe Calculate, type: :interactor do
   subject(:interactor) { described_class.call(params) }
 
   let(:params) do
