@@ -18,7 +18,7 @@ describe CalculateOrganizer, type: :interactor do
   describe '.organized' do
     let(:interactors) do
       [
-        ValidateLocationType,
+        Validators::LocationType,
         Validators::CalculateInput,
         Calculate,
         DefineCategory

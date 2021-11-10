@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe ValidateLocationType, type: :interactor do
+describe Validators::LocationType, type: :interactor do
   subject(:interactor) { described_class.call(params) }
 
   let(:params) { { location_type: location_type } }

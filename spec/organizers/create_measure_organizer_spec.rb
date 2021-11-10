@@ -20,7 +20,7 @@ describe CreateMeasureOrganizer, type: :interactor do
   describe '.organized' do
     let(:interactors) do
       [
-        ValidateCoordinates,
+        Validators::Coordinates,
         CalculateOrganizer,
         CreateMeasure
       ]

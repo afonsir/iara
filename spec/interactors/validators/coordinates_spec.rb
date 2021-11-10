@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe ValidateCoordinates, type: :interactor do
+describe Validators::Coordinates, type: :interactor do
   subject(:interactor) { described_class.call(params) }
 
   let(:params) do
