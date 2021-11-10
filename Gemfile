@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.2'
 
 gem 'activerecord-postgis-adapter', '~> 7.1'
+gem 'graphql', '~> 1.12'
 gem 'interactor', '~> 3.1'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
@@ -30,6 +31,7 @@ end
 
 group :test do
   gem 'database_cleaner-active_record', '~> 2.0'
+  gem 'rspec-graphql_matchers', '~> 1.3'
   gem 'rspec-rails', '~> 5.0'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', '~> 0.21.2', require: false

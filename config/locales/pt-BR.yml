@@ -1,13 +1,46 @@
 pt-BR:
   activerecord:
-    iet/models:
-      measure: Medição
     attributes:
-      iet/measure:
-        category: Categoria
+      measure: &measure-translations
         coords: Coordenadas da medição
+        created_at: Data de criação da medição
+        id: ID da medição
+        iet_category: Classificação do Estado Trófico (IET)
+        iet_value: Valor do Índice de Estado Trófico (IET)
         location_type: Tipo do local da medição
-        value: Valor IET calculado
+        updated_at: Data de atualização da medição
+
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+
+    models:
+      measure: Medição
+
+  graphql:
+    types:
+      domain:
+        category_type:
+          description: 'Classe de Estado Trófico (IET) e suas características principais.'
+          values:
+            eutrofico: 'Corpos d’água com alta produtividade em relação às condições naturais, com redução da transparência, em geral afetados por atividades antrópicas, nos quais ocorrem alterações indesejáveis na qualidade da água decorrentes do aumento da concentração de nutrientes e interferências nos seus múltiplos usos.'
+            hipereutrofico: 'Corpos d’água afetados significativamente pelas elevadas concentrações de matéria orgânica e nutrientes, com comprometimento acentuado nos seus usos, associado a episódios florações de algas ou mortandades de peixes, com conseqüências indesejáveis para seus múltiplos usos, inclusive sobre as atividades pecuárias nas regiões ribeirinhas.'
+            mesotrofico: 'Corpos d’água com produtividade intermediária, com possíveis implicações sobre a qualidade da água, mas em níveis aceitáveis, na maioria dos casos.'
+            oligotrofico: 'Corpos d’água limpos, de baixa produtividade, em que não ocorrem interferências indesejáveis sobre os usos da água, decorrentes da presença de nutrientes.'
+            supereutrofico: 'Corpos d’água com alta produtividade em relação às condições naturais, de baixa transparência, em geral afetados por atividades antrópicas, nos quais ocorrem com freqüência alterações indesejáveis na qualidade da água, como a ocorrência de episódios florações de algas, e interferências nos seus múltiplos usos.'
+            ultraoligotrofico: 'Corpos d’água limpos, de produtividade muito baixa e concentrações insignificantes de nutrientes que não acarretam em prejuízos aos usos da água.'
+
+        location_type:
+          description: 'Tipos de locais (ou corpos d’água) da medição.'
+          values:
+            reservatorios: Reservatórios ou represas.
+            rios: Rios ou riachos.
+
+        measure_type:
+          description: Medição de Índice de Estado Trópico (IET)
+          fields:
+            <<: *measure-translations
+
   errors:
     format: "%{attribute} %{message}"
     messages:
