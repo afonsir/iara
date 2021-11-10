@@ -8,6 +8,9 @@ module Types
       field :id, Int, null: false,
         description: I18n.t('graphql.types.domain.measure_type.fields.id')
 
+      field :coords, CoordinatesType, null: false,
+        description: I18n.t('graphql.types.domain.measure_type.fields.coords')
+
       field :iet_category, Enums::CategoryType, null: false,
         description: I18n.t('graphql.types.domain.measure_type.fields.iet_category')
 
