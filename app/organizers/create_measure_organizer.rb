@@ -3,7 +3,7 @@
 class CreateMeasureOrganizer
   include Interactor::Organizer
 
-  organize ValidateCoordinates,
+  organize Validators::Coordinates,
     CalculateOrganizer,
     CreateMeasure
 end
