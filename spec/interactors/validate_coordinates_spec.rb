@@ -18,7 +18,7 @@ describe ValidateCoordinates, type: :interactor do
   let(:validation_message) do
     I18n.t(
       'errors.format',
-      attribute: I18n.t('activerecord.attributes.iet/measure.coords'),
+      attribute: I18n.t('activerecord.attributes.measure.coords'),
       message:   I18n.t('errors.messages.blank')
     )
   end
