@@ -42,7 +42,7 @@ describe Mutations::CalculateIet, type: :request do
       let(:cl_in_micrograms) { 0.0 }
 
       let(:error_message) do
-        I18n.t('errors.custom.invalid_cl_and_pt_in_micrograms', count: 0)
+        I18n.t('errors.custom.invalid_cl_and_pt_in_micrograms')
       end
 
       it 'returns errors inside the json' do

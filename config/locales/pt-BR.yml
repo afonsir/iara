@@ -67,7 +67,7 @@ pt-BR:
 
   errors:
     custom:
-      invalid_cl_and_pt_in_micrograms: Quantidade de clorofila e Quantidade de fósforo devem ser maiores que %{count}
+      invalid_cl_and_pt_in_micrograms: Quantidade de Clorofila e Fósforo devem ser maiores que zero
 
     format: "%{attribute} %{message}"
     messages:

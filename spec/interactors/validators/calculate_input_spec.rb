@@ -16,7 +16,7 @@ describe Validators::CalculateInput, type: :interactor do
   let(:pt_in_micrograms) { 10.0 }
 
   let(:validation_message) do
-    I18n.t('errors.custom.invalid_cl_and_pt_in_micrograms', count: 0)
+    I18n.t('errors.custom.invalid_cl_and_pt_in_micrograms')
   end
 
   describe '.call' do
