@@ -52,4 +52,30 @@ describe Mutations::CalculateIet, type: :request do
       end
     end
   end
+
+  describe 'documentation' do
+    it 'returns general description' do
+      expect(described_class.description).to eq(
+        I18n.t('graphql.mutations.calculate_iet.description')
+      )
+    end
+
+    it 'returns cl_in_micrograms description' do
+      expect(described_class.arguments['clInMicrograms'].description).to eq(
+        I18n.t('graphql.mutations.calculate_iet.arguments.cl_in_micrograms')
+      )
+    end
+
+    it 'returns pt_in_micrograms description' do
+      expect(described_class.arguments['ptInMicrograms'].description).to eq(
+        I18n.t('graphql.mutations.calculate_iet.arguments.pt_in_micrograms')
+      )
+    end
+
+    it 'returns location_type description' do
+      expect(described_class.arguments['locationType'].description).to eq(
+        I18n.t('graphql.mutations.calculate_iet.arguments.location_type')
+      )
+    end
+  end
 end
