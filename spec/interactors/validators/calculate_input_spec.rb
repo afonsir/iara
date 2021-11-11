@@ -16,14 +16,7 @@ describe Validators::CalculateInput, type: :interactor do
   let(:pt_in_micrograms) { 10.0 }
 
   let(:validation_message) do
-    cl_in_micrograms_t = I18n.t('graphql.mutations.calculate_iet.arguments.cl_in_micrograms')
-    pt_in_micrograms_t = I18n.t('graphql.mutations.calculate_iet.arguments.pt_in_micrograms')
-
-    I18n.t(
-      'errors.format',
-      attribute: "#{cl_in_micrograms_t} e #{pt_in_micrograms_t}",
-      message:   I18n.t('errors.messages.greater_than', count: 0)
-    )
+    I18n.t('errors.custom.invalid_cl_and_pt_in_micrograms', count: 0)
   end
 
   describe '.call' do
