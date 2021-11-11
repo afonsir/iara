@@ -16,19 +16,7 @@ module Validators
     private
 
     def validation_message
-      I18n.t(
-        'errors.format',
-        attribute: "#{cl_in_micrograms_t} e #{pt_in_micrograms_t}",
-        message:   I18n.t('errors.messages.greater_than', count: 0)
-      )
-    end
-
-    def cl_in_micrograms_t
-      I18n.t('graphql.mutations.calculate_iet.arguments.cl_in_micrograms')
-    end
-
-    def pt_in_micrograms_t
-      I18n.t('graphql.mutations.calculate_iet.arguments.pt_in_micrograms')
+      I18n.t('errors.custom.invalid_cl_and_pt_in_micrograms', count: 0)
     end
   end
 end

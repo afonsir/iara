@@ -53,6 +53,9 @@ pt-BR:
             <<: *measure-translations
 
   errors:
+    custom:
+      invalid_cl_and_pt_in_micrograms: Quantidade de clorofila e Quantidade de fósforo devem ser maiores que %{count}
+
     format: "%{attribute} %{message}"
     messages:
       blank: não pode ficar em branco
