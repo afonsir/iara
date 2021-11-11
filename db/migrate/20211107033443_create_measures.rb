@@ -3,7 +3,7 @@ class CreateMeasures < ActiveRecord::Migration[6.1]
     create_table :measures do |t|
       t.st_point :coords, null: false, geographic: true
       t.integer  :iet_category, null: false, limit: 1
-      t.decimal  :iet_value, null: false, precision: 10, scale: 2
+      t.decimal  :iet_value, null: false, precision: 10, scale: 5
       t.integer  :location_type, null: false, limit: 1
 
       t.timestamps
