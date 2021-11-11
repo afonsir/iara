@@ -52,6 +52,14 @@ pt-BR:
           fields:
             <<: *measure-translations
 
+    mutations:
+      calculate_iet:
+        description: Cálculo do Índice de Estado Trófico (IET)
+        arguments:
+          <<: *measure-translations
+          cl_in_micrograms: Quantidade de clorofila (em microgramas)
+          pt_in_micrograms: Quantidade de fósforo (em microgramas)
+
   errors:
     custom:
       invalid_cl_and_pt_in_micrograms: Quantidade de clorofila e Quantidade de fósforo devem ser maiores que %{count}
@@ -59,6 +67,7 @@ pt-BR:
     format: "%{attribute} %{message}"
     messages:
       blank: não pode ficar em branco
+      greater_than: deve ser maior que %{count}
       greater_than_or_equal_to: deve ser maior ou igual a %{count}
       invalid: não é válido
       model_invalid: 'A validação falhou: %{errors}'
