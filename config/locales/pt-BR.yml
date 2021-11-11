@@ -4,6 +4,7 @@ pt-BR:
       measure: &measure-translations
         coords: Coordenadas da medição
         created_at: Data de criação da medição
+        distance_in_km: Distância do raio em km
         id: ID da medição
         iet_category: Classificação do Estado Trófico (IET)
         iet_value: Valor do Índice de Estado Trófico (IET)
