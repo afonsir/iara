@@ -55,10 +55,15 @@ pt-BR:
     mutations:
       calculate_iet:
         description: Cálculo do Índice de Estado Trófico (IET)
-        arguments:
+        arguments: &calculate-iet-mutation-translations
           <<: *measure-translations
           cl_in_micrograms: Quantidade de clorofila (em microgramas)
           pt_in_micrograms: Quantidade de fósforo (em microgramas)
+
+      create_iet_measure:
+        description: Criar medição de Índice de Estado Trófico (IET)
+        arguments:
+          <<: *calculate-iet-mutation-translations
 
   errors:
     custom:
