@@ -20,6 +20,11 @@ pt-BR:
   graphql:
     types:
       domain:
+        calculated_iet_type:
+          description: Resultado da medição do Índice de Estado Trópico (IET)
+          fields:
+            <<: *measure-translations
+
         category_type:
           description: 'Classe de Estado Trófico (IET) e suas características principais.'
           values:
