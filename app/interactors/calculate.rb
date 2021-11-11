@@ -22,10 +22,14 @@ class Calculate
   def call
     context.calculated_cl_value = calculate_cl
     context.calculated_pt_value = calculate_pt
-    context.iet_value = (calculated_pt_value + calculated_cl_value) / 2.0
+    context.iet_value = calculate
   end
 
   private
+
+  def calculate
+    ((calculated_pt_value + calculated_cl_value) / 2.0).round(5)
+  end
 
   def calculate_cl
     return ((10 * (6 - ((-0.7 - (0.6 * ln_cl)) / ln2))) - 20) if rios?
