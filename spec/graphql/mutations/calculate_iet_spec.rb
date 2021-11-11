@@ -53,6 +53,14 @@ describe Mutations::CalculateIet, type: :request do
     end
   end
 
+  describe 'arguments' do
+    subject { described_class }
+
+    it { is_expected.to accept_argument(:cl_in_micrograms).of_type('Float!') }
+    it { is_expected.to accept_argument(:pt_in_micrograms).of_type('Float!') }
+    it { is_expected.to accept_argument(:location_type).of_type('Location!') }
+  end
+
   describe 'documentation' do
     it 'returns general description' do
       expect(described_class.description).to eq(
