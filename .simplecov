@@ -7,6 +7,8 @@ SimpleCov.start do
   add_filter 'spec'
   add_filter { |source_file| source_file.lines.count < 5 }
 
+  add_filter 'app/controllers/graphql_controller.rb'
+
   add_group 'Models',      'app/models'
   add_group 'Interactors', 'app/interactors'
   add_group 'Organizers',  'app/organizers'

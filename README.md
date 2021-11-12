@@ -5,7 +5,7 @@
 
 # 🧜🏽‍♀️ Iara
 
-Este projeto, apelidado de **Iara** (segundo o folclore brasileiro, sereia que vive no rio Amazonas), busca auxiliar na proteção de lagos e represas, e provendo o cálculo de indicadores de qualidade da água, a princípio, o **Índice do Estado Trófico (IET).**
+Este projeto, apelidado de **Iara** (segundo o folclore brasileiro, sereia que vive no rio Amazonas), busca auxiliar na proteção de lagos e represas, provendo o cálculo de indicadores de qualidade da água, a princípio, o **Índice do Estado Trófico (IET).**
 
 # Índice do Estado Trófico
 

@@ -14,4 +14,11 @@ class Measure < ApplicationRecord
     supereutrofico:    4,
     hipereutrofico:    5
   }
+
+  scope :near, ->(point, distance_in_km = 1) {
+    where(
+      'ST_DWithin(coords, :point, :distance)',
+      { point: Geo.to_wkt(point), distance: distance_in_km * 1_000 }
+    )
+  }
 end

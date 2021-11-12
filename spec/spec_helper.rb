@@ -18,6 +18,9 @@
 require 'faker'
 require 'simplecov'
 
+require 'support/helpers/json_helpers'
+require 'support/shared_examples/graphql_request'
+
 SimpleCov.start
 
 RSpec.configure do |config|

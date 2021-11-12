@@ -4,6 +4,7 @@ pt-BR:
       measure: &measure-translations
         coords: Coordenadas da medição
         created_at: Data de criação da medição
+        distance_in_km: Distância do raio em km (valor padrão de 1km)
         id: ID da medição
         iet_category: Classificação do Estado Trófico (IET)
         iet_value: Valor do Índice de Estado Trófico (IET)
@@ -20,6 +21,11 @@ pt-BR:
   graphql:
     types:
       domain:
+        calculated_iet_type:
+          description: Resultado da medição do Índice de Estado Trópico (IET)
+          fields:
+            <<: *measure-translations
+
         category_type:
           description: 'Classe de Estado Trófico (IET) e suas características principais.'
           values:
@@ -29,6 +35,12 @@ pt-BR:
             oligotrofico: 'Corpos d’água limpos, de baixa produtividade, em que não ocorrem interferências indesejáveis sobre os usos da água, decorrentes da presença de nutrientes.'
             supereutrofico: 'Corpos d’água com alta produtividade em relação às condições naturais, de baixa transparência, em geral afetados por atividades antrópicas, nos quais ocorrem com freqüência alterações indesejáveis na qualidade da água, como a ocorrência de episódios florações de algas, e interferências nos seus múltiplos usos.'
             ultraoligotrofico: 'Corpos d’água limpos, de produtividade muito baixa e concentrações insignificantes de nutrientes que não acarretam em prejuízos aos usos da água.'
+
+        coordinates_types:
+          description: Coordenadas da medição (latitude e longitude)
+          fields:
+            latitude: Latitude
+            longitude: Longitude
 
         location_type:
           description: 'Tipos de locais (ou corpos d’água) da medição.'
@@ -41,10 +53,36 @@ pt-BR:
           fields:
             <<: *measure-translations
 
+    mutations:
+      calculate_iet:
+        description: Cálculo do Índice de Estado Trófico (IET)
+        arguments: &calculate-iet-mutation-translations
+          <<: *measure-translations
+          cl_in_micrograms: Quantidade de clorofila (em microgramas)
+          pt_in_micrograms: Quantidade de fósforo (em microgramas)
+
+      create_iet_measure:
+        description: Criar medição de Índice de Estado Trófico (IET)
+        arguments:
+          <<: *calculate-iet-mutation-translations
+
+    queries:
+      fetch_near_measures:
+        description: Pesquisa por medições dentro de uma distância (raio) fornecida
+        arguments:
+          <<: *measure-translations
+          initial_date: Data inicial do período a ser pesquisado (yyyy-mm-dd)
+          final_date: Data final do período a ser pesquisado (yyyy-mm-dd)
+          limit: Quantidade total de registros a ser retornada
+
   errors:
+    custom:
+      invalid_cl_and_pt_in_micrograms: Quantidade de Clorofila e Fósforo devem ser maiores que zero
+
     format: "%{attribute} %{message}"
     messages:
       blank: não pode ficar em branco
+      greater_than: deve ser maior que %{count}
       greater_than_or_equal_to: deve ser maior ou igual a %{count}
       invalid: não é válido
       model_invalid: 'A validação falhou: %{errors}'

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class CreateMeasureOrganizer
+class FetchNearMeasuresOrganizer
   include Interactor::Organizer
 
   organize Validators::Coordinates,
-    CalculateOrganizer,
-    CreateMeasure
+    Validators::DistanceInput,
+    Fetch::NearMeasures
 end

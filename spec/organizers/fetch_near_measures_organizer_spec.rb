@@ -2,27 +2,22 @@
 
 require 'rails_helper'
 
-describe CreateMeasureOrganizer, type: :interactor do
+describe FetchNearMeasuresOrganizer, type: :interactor do
   subject(:organizer) { described_class.call(params) }
 
   let(:params) do
     {
-      cl_in_micrograms: 10,
-      pt_in_micrograms: 10,
-      latitude:         Faker::Address.latitude,
-      longitude:        Faker::Address.longitude,
-      location_type:    location_type
+      latitude:  Faker::Address.latitude,
+      longitude: Faker::Address.longitude
     }
   end
-
-  let(:location_type) { Measure.location_types.keys.sample }
 
   describe '.organized' do
     let(:interactors) do
       [
         Validators::Coordinates,
-        CalculateOrganizer,
-        CreateMeasure
+        Validators::DistanceInput,
+        Fetch::NearMeasures
       ]
     end
 

@@ -3,7 +3,8 @@
 class CalculateOrganizer
   include Interactor::Organizer
 
-  organize ValidateLocationType,
+  organize Validators::LocationType,
+    Validators::CalculateInput,
     Calculate,
     DefineCategory
 end

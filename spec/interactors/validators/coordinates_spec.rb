@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe ValidateCoordinates, type: :interactor do
+describe Validators::Coordinates, type: :interactor do
   subject(:interactor) { described_class.call(params) }
 
   let(:params) do
@@ -18,7 +18,7 @@ describe ValidateCoordinates, type: :interactor do
   let(:validation_message) do
     I18n.t(
       'errors.format',
-      attribute: I18n.t('activerecord.attributes.iet/measure.coords'),
+      attribute: I18n.t('activerecord.attributes.measure.coords'),
       message:   I18n.t('errors.messages.blank')
     )
   end

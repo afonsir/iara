@@ -34,11 +34,11 @@ describe CreateMeasure, type: :interactor do
       end
 
       it 'returns a measure with expected latitude' do
-        expect(interactor.measure.coords.latitude).to eq params[:latitude]
+        expect(interactor.measure.coords.latitude).to be_within(0.00000000000005).of(params[:latitude])
       end
 
       it 'returns a measure with expected longitude' do
-        expect(interactor.measure.coords.longitude).to eq params[:longitude]
+        expect(interactor.measure.coords.longitude).to be_within(0.00000000000005).of(params[:longitude])
       end
     end
 

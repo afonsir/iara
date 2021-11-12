@@ -6,6 +6,7 @@ describe Types::Domain::MeasureType do
   subject { described_class }
 
   it { is_expected.to have_field(:id).of_type('Int!') }
+  it { is_expected.to have_field(:coords).of_type('Coordinates!') }
   it { is_expected.to have_field(:iet_category).of_type('Category!') }
   it { is_expected.to have_field(:iet_value).of_type('Float!') }
   it { is_expected.to have_field(:location_type).of_type('Location!') }
@@ -22,6 +23,12 @@ describe Types::Domain::MeasureType do
     it 'returns ID description' do
       expect(described_class.fields['id'].description).to eq(
         I18n.t('graphql.types.domain.measure_type.fields.id')
+      )
+    end
+
+    it 'returns coords description' do
+      expect(described_class.fields['coords'].description).to eq(
+        I18n.t('graphql.types.domain.measure_type.fields.coords')
       )
     end
 
