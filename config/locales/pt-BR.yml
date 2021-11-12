@@ -4,7 +4,7 @@ pt-BR:
       measure: &measure-translations
         coords: Coordenadas da medição
         created_at: Data de criação da medição
-        distance_in_km: Distância do raio em km
+        distance_in_km: Distância do raio em km (valor padrão de 1km)
         id: ID da medição
         iet_category: Classificação do Estado Trófico (IET)
         iet_value: Valor do Índice de Estado Trófico (IET)
@@ -65,6 +65,15 @@ pt-BR:
         description: Criar medição de Índice de Estado Trófico (IET)
         arguments:
           <<: *calculate-iet-mutation-translations
+
+    queries:
+      fetch_near_measures:
+        description: Pesquisa por medições dentro de uma distância (raio) fornecida
+        arguments:
+          <<: *measure-translations
+          initial_date: Data inicial do período a ser pesquisado (yyyy-mm-dd)
+          final_date: Data final do período a ser pesquisado (yyyy-mm-dd)
+          limit: Quantidade total de registros a ser retornada
 
   errors:
     custom:
