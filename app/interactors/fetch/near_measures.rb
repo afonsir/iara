@@ -14,7 +14,7 @@ module Fetch
       to: :context
 
     def call
-      context.measures = Measure.near(geo_point, distance_in_km)
+      context.measures = Measure.near(geo_point, distance_in_km || 1)
                                 .where(created_at: initial_utc_date..final_utc_date)
                                 .order(created_at: :desc)
                                 .limit(limit_abs)
