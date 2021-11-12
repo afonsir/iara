@@ -70,6 +70,7 @@ RSpec.configure do |config|
   end
 
   config.include FactoryBot::Syntax::Methods
+  config.include ActiveSupport::Testing::TimeHelpers
 
   Shoulda::Matchers.configure do |config_matchers|
     config_matchers.integrate do |with|
