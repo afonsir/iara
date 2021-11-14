@@ -10,3 +10,5 @@ Este projeto, apelidado de **Iara** (segundo o folclore brasileiro, sereia que v
 # Índice do Estado Trófico
 
 A eutrofização é o aumento da concentração de nutrientes, especialmente fósforo e nitrogênio, nos ecossistemas aquáticos, produzindo um aumento da população de algas dos mesmos. São vários os efeitos indesejáveis da eutrofização, entre eles: maus odores e mortandade de peixes, mudanças na biodiversidade aquática, entre outros. ([Saiba mais](http://pnqa.ana.gov.br/indicadores-estado-trofico.aspx))
+
+![eutrofizacao](https://github.com/afonsir/iara/blob/feat/improve-readme/guides/images/eutrofizacao.jpg?raw=true)
