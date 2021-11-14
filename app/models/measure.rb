@@ -21,4 +21,18 @@ class Measure < ApplicationRecord
       { point: Geo.to_wkt(point), distance: distance_in_km * 1_000 }
     )
   }
+
+  scope :within_box, ->(sw_point, ne_point) {
+    where(
+      "coords && ST_MakeEnvelope(:sw_lon, :sw_lat, :ne_lon, :ne_lat, #{
+        Geo::SRID
+      })",
+      {
+        sw_lon: sw_point.longitude,
+        sw_lat: sw_point.latitude,
+        ne_lon: ne_point.longitude,
+        ne_lat: ne_point.latitude
+      }
+    )
+  }
 end

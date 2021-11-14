@@ -42,6 +42,12 @@ pt-BR:
             latitude: Latitude
             longitude: Longitude
 
+        list_measure_type:
+          description: Lista de medições de Índice de Estado Trófico (IET)
+          fields:
+            measures: Medições de Índice de Estado Trófico (IET)
+            total_count: Total de registros encontrados
+
         location_type:
           description: 'Tipos de locais (ou corpos d’água) da medição.'
           values:
@@ -69,15 +75,23 @@ pt-BR:
     queries:
       fetch_near_measures:
         description: Pesquisa por medições dentro de uma distância (raio) fornecida
-        arguments:
+        arguments: &fetch-near-measures-translations
           <<: *measure-translations
           initial_date: Data inicial do período a ser pesquisado (yyyy-mm-dd)
           final_date: Data final do período a ser pesquisado (yyyy-mm-dd)
-          limit: Quantidade total de registros a ser retornada
+          limit: Quantidade total de registros a ser retornada (quando ausente, retornará todos os registros encontrados)
+
+      fetch_measures_within_box:
+        description: Pesquisa por medições dentro de uma área fornecida
+        arguments:
+          <<: *fetch-near-measures-translations
+          ne_coords: Coordenadas do ponto Nordeste (NE)
+          sw_coords: Coordenadas do ponto Sudoeste (SO)
 
   errors:
     custom:
       invalid_cl_and_pt_in_micrograms: Quantidade de Clorofila e Fósforo devem ser maiores que zero
+      invalid_coordinates: As coordenadas SO (Sudoeste) e NE (Nordeste) devem ser preenchidas
 
     format: "%{attribute} %{message}"
     messages:

@@ -2,22 +2,23 @@
 
 require 'rails_helper'
 
-describe FetchNearMeasuresOrganizer, type: :interactor do
+describe FetchMeasuresWithinBoxOrganizer, type: :interactor do
   subject(:organizer) { described_class.call(params) }
 
   let(:params) do
     {
-      latitude:  Faker::Address.latitude,
-      longitude: Faker::Address.longitude
+      ne_latitude:  Faker::Address.latitude,
+      ne_longitude: Faker::Address.longitude,
+      sw_latitude:  Faker::Address.latitude,
+      sw_longitude: Faker::Address.longitude
     }
   end
 
   describe '.organized' do
     let(:interactors) do
       [
-        Validators::Coordinates,
-        Validators::DistanceInput,
-        Fetch::NearMeasures,
+        Validators::BoxCoordinates,
+        Fetch::MeasuresWithinBox,
         Fetch::Limit
       ]
     end

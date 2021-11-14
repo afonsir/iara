@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe Queries::FetchNearMeasures, type: :request do
-  subject(:query_reponse) { json_response[:data][:fetchNearMeasures] }
+describe Queries::FetchMeasuresWithinBox, type: :request do
+  subject(:query_reponse) { json_response[:data][:fetchMeasuresWithinBox] }
 
   let(:latitude)  { Faker::Address.latitude }
   let(:longitude) { Faker::Address.longitude }
@@ -13,10 +13,14 @@ describe Queries::FetchNearMeasures, type: :request do
   let(:query) do
     <<-GRAPHQL
       query {
-        fetchNearMeasures(
-          coords: {
+        fetchMeasuresWithinBox (
+          swCoords: {
             latitude:  #{latitude}
             longitude: #{longitude}
+          }
+          neCoords: {
+            latitude:  #{latitude + 1.0}
+            longitude: #{longitude + 1.0}
           }
           limit: 3
         ) {
@@ -45,7 +49,7 @@ describe Queries::FetchNearMeasures, type: :request do
   describe 'POST' do
     context 'when params are valid' do
       before do
-        create_list(:measure, limit, coords: Geo.point(longitude, latitude))
+        create_list(:measure, limit, coords: Geo.point(longitude + 0.5, latitude + 0.5))
 
         post_request
       end
@@ -73,8 +77,8 @@ describe Queries::FetchNearMeasures, type: :request do
   describe 'arguments' do
     subject { described_class }
 
-    it { is_expected.to accept_argument(:coords).of_type('CoordinatesInput!') }
-    it { is_expected.to accept_argument(:distance_in_km).of_type('Float') }
+    it { is_expected.to accept_argument(:sw_coords).of_type('CoordinatesInput!') }
+    it { is_expected.to accept_argument(:ne_coords).of_type('CoordinatesInput!') }
     it { is_expected.to accept_argument(:initial_date).of_type('ISO8601DateTime') }
     it { is_expected.to accept_argument(:final_date).of_type('ISO8601DateTime') }
     it { is_expected.to accept_argument(:limit).of_type('Int') }
@@ -83,37 +87,37 @@ describe Queries::FetchNearMeasures, type: :request do
   describe 'documentation' do
     it 'returns general description' do
       expect(described_class.description).to eq(
-        I18n.t('graphql.queries.fetch_near_measures.description')
+        I18n.t('graphql.queries.fetch_measures_within_box.description')
       )
     end
 
-    it 'returns coords description' do
-      expect(described_class.arguments['coords'].description).to eq(
-        I18n.t('graphql.queries.fetch_near_measures.arguments.coords')
+    it 'returns sw_coords description' do
+      expect(described_class.arguments['swCoords'].description).to eq(
+        I18n.t('graphql.queries.fetch_measures_within_box.arguments.sw_coords')
       )
     end
 
-    it 'returns distance_in_km description' do
-      expect(described_class.arguments['distanceInKm'].description).to eq(
-        I18n.t('graphql.queries.fetch_near_measures.arguments.distance_in_km')
+    it 'returns ne_coords description' do
+      expect(described_class.arguments['neCoords'].description).to eq(
+        I18n.t('graphql.queries.fetch_measures_within_box.arguments.ne_coords')
       )
     end
 
     it 'returns initial_date description' do
       expect(described_class.arguments['initialDate'].description).to eq(
-        I18n.t('graphql.queries.fetch_near_measures.arguments.initial_date')
+        I18n.t('graphql.queries.fetch_measures_within_box.arguments.initial_date')
       )
     end
 
     it 'returns final_date description' do
       expect(described_class.arguments['finalDate'].description).to eq(
-        I18n.t('graphql.queries.fetch_near_measures.arguments.final_date')
+        I18n.t('graphql.queries.fetch_measures_within_box.arguments.final_date')
       )
     end
 
     it 'returns limit description' do
       expect(described_class.arguments['limit'].description).to eq(
-        I18n.t('graphql.queries.fetch_near_measures.arguments.limit')
+        I18n.t('graphql.queries.fetch_measures_within_box.arguments.limit')
       )
     end
   end

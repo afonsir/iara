@@ -10,5 +10,6 @@ module Types
     # They will be entry points for queries on your schema.
 
     field :fetch_near_measures, resolver: Queries::FetchNearMeasures
+    field :fetch_measures_within_box, resolver: Queries::FetchMeasuresWithinBox
   end
 end

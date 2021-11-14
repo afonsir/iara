@@ -1,28 +1,32 @@
 # frozen_string_literal: true
 
 module Fetch
-  class NearMeasures
+  class MeasuresWithinBox
     include Interactor
 
     # input interface
-    delegate :latitude,
-      :longitude,
-      :distance_in_km,
+    delegate :ne_latitude,
+      :ne_longitude,
+      :sw_latitude,
+      :sw_longitude,
       :initial_date,
       :final_date,
-      :limit,
       to: :context
 
     def call
-      context.measures = Measure.near(geo_point, distance_in_km || 1)
+      context.measures = Measure.within_box(sw_geo_point, ne_geo_point)
                                 .where(created_at: initial_utc_date..final_utc_date)
                                 .order(created_at: :desc)
     end
 
     private
 
-    def geo_point
-      Geo.point(longitude, latitude)
+    def ne_geo_point
+      Geo.point(ne_longitude, ne_latitude)
+    end
+
+    def sw_geo_point
+      Geo.point(sw_longitude, sw_latitude)
     end
 
     def initial_utc_date
