@@ -16,17 +16,26 @@ module Queries
     argument :final_date, GraphQL::Types::ISO8601DateTime, required: false,
       description: I18n.t('graphql.queries.fetch_near_measures.arguments.final_date')
 
-    argument :limit, Int, default_value: 10, required: false,
+    argument :limit, Int, required: false,
       description: I18n.t('graphql.queries.fetch_near_measures.arguments.limit')
 
-    type [Types::Domain::MeasureType], null: false
+    type Types::Domain::ListMeasureType, null: false
 
     def resolve(coords:, **args)
       context = FetchNearMeasuresOrganizer.call(args.merge(coords.to_h))
 
       raise GraphQL::ExecutionError, context.error if context.failure?
 
-      context.measures
+      result(context)
+    end
+
+    private
+
+    def result(context)
+      {
+        total_count: context[:total_count],
+        measures:    context[:measures]
+      }
     end
   end
 end
