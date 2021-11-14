@@ -20,16 +20,19 @@ describe Queries::FetchNearMeasures, type: :request do
           }
           limit: 3
         ) {
-          id
-          coords {
-            latitude
-            longitude
+          totalCount
+          measures {
+            id
+            coords {
+              latitude
+              longitude
+            }
+            ietCategory
+            ietValue
+            locationType
+            createdAt
+            updatedAt
           }
-          ietCategory
-          ietValue
-          locationType
-          createdAt
-          updatedAt
         }
       }
     GRAPHQL
@@ -48,13 +51,21 @@ describe Queries::FetchNearMeasures, type: :request do
       end
 
       it 'returns a json with a list of 3 measures' do
-        expect(query_reponse.size).to eq(3)
+        expect(query_reponse[:measures].size).to eq 3
+      end
+
+      it 'returns a json with a totalCount of 5' do
+        expect(query_reponse[:totalCount]).to eq 5
       end
     end
 
     context 'when params does not match any record' do
       it 'returns a json with an empty list of measures' do
-        expect(query_reponse.size).to be_zero
+        expect(query_reponse[:measures].size).to be_zero
+      end
+
+      it 'returns a json with a totalCount of 0' do
+        expect(query_reponse[:totalCount]).to be_zero
       end
     end
   end
