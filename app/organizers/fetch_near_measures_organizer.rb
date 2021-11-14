@@ -5,5 +5,6 @@ class FetchNearMeasuresOrganizer
 
   organize Validators::Coordinates,
     Validators::DistanceInput,
-    Fetch::NearMeasures
+    Fetch::NearMeasures,
+    Fetch::Limit
 end
