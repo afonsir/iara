@@ -42,6 +42,12 @@ pt-BR:
             latitude: Latitude
             longitude: Longitude
 
+        list_measure_type:
+          description: Lista de medições de Índice de Estado Trófico (IET)
+          fields:
+            measures: Medições de Índice de Estado Trófico (IET)
+            total_count: Total de registros encontrados
+
         location_type:
           description: 'Tipos de locais (ou corpos d’água) da medição.'
           values:
