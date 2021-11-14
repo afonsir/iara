@@ -9,8 +9,7 @@ describe Fetch::NearMeasures, type: :interactor do
     {
       latitude:       latitude,
       longitude:      longitude,
-      distance_in_km: distance_in_km,
-      limit:          limit
+      distance_in_km: distance_in_km
     }
   end
 
@@ -18,19 +17,18 @@ describe Fetch::NearMeasures, type: :interactor do
   let(:longitude) { Faker::Address.longitude }
 
   let(:distance_in_km) { 1 }
-  let(:limit) { 10 }
 
   describe '.call' do
     before do
-      create_list(:measure, limit, coords: Geo.point(longitude, latitude))
-      create_list(:measure, limit, coords: Geo.point(longitude + 10, latitude + 10))
+      create_list(:measure, 10, coords: Geo.point(longitude, latitude))
+      create_list(:measure, 10, coords: Geo.point(longitude + 10, latitude + 10))
     end
 
     context 'when params are present' do
       it { is_expected.to be_a_success }
 
       it 'returns a list of measures' do
-        expect(interactor.measures.size).to eq limit
+        expect(interactor.measures.size).to eq 10
       end
     end
 
