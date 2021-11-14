@@ -17,7 +17,6 @@ module Fetch
       context.measures = Measure.near(geo_point, distance_in_km || 1)
                                 .where(created_at: initial_utc_date..final_utc_date)
                                 .order(created_at: :desc)
-                                .limit(limit_abs)
     end
 
     private
@@ -32,10 +31,6 @@ module Fetch
 
     def final_utc_date
       (final_date&.to_date || Time.zone.today).end_of_day.to_s(:db)
-    end
-
-    def limit_abs
-      limit&.abs || 10
     end
   end
 end
