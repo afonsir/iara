@@ -17,7 +17,8 @@ describe FetchNearMeasuresOrganizer, type: :interactor do
       [
         Validators::Coordinates,
         Validators::DistanceInput,
-        Fetch::NearMeasures
+        Fetch::NearMeasures,
+        Fetch::Limit
       ]
     end
 
