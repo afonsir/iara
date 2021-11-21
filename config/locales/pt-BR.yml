@@ -91,7 +91,7 @@ pt-BR:
   errors:
     custom:
       invalid_cl_and_pt_in_micrograms: Quantidade de Clorofila e Fósforo devem ser maiores que zero
-      invalid_coordinates: As coordenadas SO (Sudoeste) e NE (Nordeste) devem ser preenchidas
+      invalid_coordinates: Coordenadas inválidas (latitude deve estar entre -90 e +90, longitude entre -180 e 180, inclusive)
 
     format: "%{attribute} %{message}"
     messages:
