@@ -26,7 +26,7 @@ module Queries
         organizer_context(sw_coords, ne_coords, args)
       )
 
-      raise GraphQL::ExecutionError, context.error if context.failure?
+      graphql_error!(context)
 
       result(context)
     end

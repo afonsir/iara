@@ -2,5 +2,6 @@
 
 module Queries
   class BaseQuery < GraphQL::Schema::Resolver
+    include Types::Helpers
   end
 end
