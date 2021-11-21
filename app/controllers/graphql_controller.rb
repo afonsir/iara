@@ -10,10 +10,7 @@ class GraphqlController < ApplicationController
     variables = prepare_variables(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
-    }
+    context = { current_user: current_user }
     result = IaraSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   rescue StandardError => e
@@ -23,6 +20,14 @@ class GraphqlController < ApplicationController
   end
 
   private
+
+  def current_user
+    context = Authenticate.call(headers: request.headers)
+
+    return if context.failure?
+
+    context.user
+  end
 
   # Handle variables in form data, JSON body, or a blank value
   def prepare_variables(variables_param)
