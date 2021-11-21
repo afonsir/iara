@@ -16,6 +16,10 @@ Rails:
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
+Layout/LineLength:
+  Enabled: true
+  Exclude:
+    - 'config/initializers/devise.rb'
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 Layout/SpaceBeforeBrackets:

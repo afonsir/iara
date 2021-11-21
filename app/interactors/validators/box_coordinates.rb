@@ -12,16 +12,25 @@ module Validators
       to: :context
 
     def call
-      return if all_coords_present?
+      return if all_coords_valid?
 
       context.fail!(error: validation_message)
     end
 
     private
 
-    def all_coords_present?
-      ne_latitude.present? && ne_longitude.present? &&
-        sw_latitude.present? && sw_longitude.present?
+    def all_coords_valid?
+      valid_latitudes? && valid_longitudes?
+    end
+
+    def valid_latitudes?
+      ne_latitude.present? && ne_latitude.abs <= 90 &&
+        sw_latitude.present? && sw_latitude.abs <= 90
+    end
+
+    def valid_longitudes?
+      ne_longitude.present? && ne_longitude.abs <= 180 &&
+        sw_longitude.present? && sw_longitude.abs <= 180
     end
 
     def validation_message

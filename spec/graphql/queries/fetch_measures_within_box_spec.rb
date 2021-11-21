@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Queries::FetchMeasuresWithinBox, type: :request do
+describe Queries::FetchMeasuresWithinBox, type: :request, authenticate: true do
   subject(:query_reponse) { json_response[:data][:fetchMeasuresWithinBox] }
 
   let(:latitude)  { Faker::Address.latitude }
@@ -71,6 +71,10 @@ describe Queries::FetchMeasuresWithinBox, type: :request do
       it 'returns a json with a totalCount of 0' do
         expect(query_reponse[:totalCount]).to be_zero
       end
+    end
+
+    context 'when user is not authorized' do
+      include_examples 'without jwt authentication', 'fetchMeasuresWithinBox'
     end
   end
 

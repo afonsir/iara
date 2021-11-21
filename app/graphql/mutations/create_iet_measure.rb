@@ -21,7 +21,7 @@ module Mutations
     def resolve(coords:, **args)
       context = CreateMeasureOrganizer.call(args.merge(coords.to_h))
 
-      raise GraphQL::ExecutionError, context.error if context.failure?
+      graphql_error!(context)
 
       context.measure
     end

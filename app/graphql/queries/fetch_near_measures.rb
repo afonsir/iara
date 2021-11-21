@@ -24,7 +24,7 @@ module Queries
     def resolve(coords:, **args)
       context = FetchNearMeasuresOrganizer.call(args.merge(coords.to_h))
 
-      raise GraphQL::ExecutionError, context.error if context.failure?
+      graphql_error!(context)
 
       result(context)
     end

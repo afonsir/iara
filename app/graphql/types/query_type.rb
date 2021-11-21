@@ -9,7 +9,9 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :fetch_near_measures, resolver: Queries::FetchNearMeasures
-    field :fetch_measures_within_box, resolver: Queries::FetchMeasuresWithinBox
+    with_options guard: GraphqlPolicy::LOGGED do
+      field :fetch_near_measures, resolver: Queries::FetchNearMeasures
+      field :fetch_measures_within_box, resolver: Queries::FetchMeasuresWithinBox
+    end
   end
 end

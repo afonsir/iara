@@ -20,6 +20,7 @@ require 'simplecov'
 
 require 'support/helpers/json_helpers'
 require 'support/shared_examples/graphql_request'
+require 'support/shared_examples/jwt_authentication'
 
 SimpleCov.start
 
