@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.2'
 
 gem 'activerecord-postgis-adapter', '~> 7.1'
+gem 'devise', '~> 4.8'
 gem 'graphql', '~> 1.12'
 gem 'interactor', '~> 3.1'
 gem 'pg', '~> 1.1'
