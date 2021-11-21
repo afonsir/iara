@@ -20,7 +20,7 @@ describe Validators::BoxCoordinates, type: :interactor do
   let(:sw_longitude) { Faker::Address.longitude }
 
   describe '.call' do
-    shared_examples 'an invalid context' do
+    shared_examples 'an invalid coordinate' do
       it { is_expected.to be_a_failure }
 
       it 'returns an error message inside context' do
@@ -33,27 +33,51 @@ describe Validators::BoxCoordinates, type: :interactor do
     end
 
     context 'when ne_latitude is invalid' do
+      let(:ne_latitude) { -91.0 }
+
+      it_behaves_like 'an invalid coordinate'
+    end
+
+    context 'when ne_latitude is not present' do
       let(:ne_latitude) { nil }
 
-      it_behaves_like 'an invalid context'
+      it_behaves_like 'an invalid coordinate'
     end
 
     context 'when ne_longitude is invalid' do
+      let(:ne_longitude) { -181.0 }
+
+      it_behaves_like 'an invalid coordinate'
+    end
+
+    context 'when ne_longitude is not present' do
       let(:ne_longitude) { nil }
 
-      it_behaves_like 'an invalid context'
+      it_behaves_like 'an invalid coordinate'
     end
 
     context 'when sw_latitude is invalid' do
+      let(:sw_latitude) { -91.0 }
+
+      it_behaves_like 'an invalid coordinate'
+    end
+
+    context 'when sw_latitude is not present' do
       let(:sw_latitude) { nil }
 
-      it_behaves_like 'an invalid context'
+      it_behaves_like 'an invalid coordinate'
     end
 
     context 'when sw_longitude is invalid' do
+      let(:sw_longitude) { -181.0 }
+
+      it_behaves_like 'an invalid coordinate'
+    end
+
+    context 'when sw_longitude is not present' do
       let(:sw_longitude) { nil }
 
-      it_behaves_like 'an invalid context'
+      it_behaves_like 'an invalid coordinate'
     end
   end
 end
