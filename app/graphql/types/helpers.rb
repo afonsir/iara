@@ -2,13 +2,13 @@
 
 module Types
   module Helpers
-    def current_user
-      context[:current_user]
-    end
+    # def current_user
+    #   context[:current_user]
+    # end
 
-    def current_user_id
-      current_user&.id
-    end
+    # def current_user_id
+    #   current_user&.id
+    # end
 
     def graphql_error!(context)
       raise GraphQL::ExecutionError, context.error if context.failure?

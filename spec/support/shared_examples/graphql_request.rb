@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_context 'with graphql query request' do
-  let(:headers)   { {} }
+  let(:headers)   { { Authorization: JsonWebToken.encode({ id: nil }) } }
   let(:variables) { {} }
 
   let(:graphql_params) do

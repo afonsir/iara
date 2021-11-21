@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Mutations::CreateIetMeasure, type: :request do
+describe Mutations::CreateIetMeasure, type: :request, authenticate: true do
   subject(:mutation_response) { json_response[:data][:createIetMeasure] }
 
   let(:cl_in_micrograms) { 10.0 }
@@ -69,6 +69,10 @@ describe Mutations::CreateIetMeasure, type: :request do
           message: error_message, path: ['createIetMeasure']
         ))
       end
+    end
+
+    context 'when user is not authorized' do
+      include_examples 'without jwt authentication', 'createIetMeasure'
     end
   end
 

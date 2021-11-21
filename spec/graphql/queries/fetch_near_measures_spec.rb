@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Queries::FetchNearMeasures, type: :request do
+describe Queries::FetchNearMeasures, type: :request, authenticate: true do
   subject(:query_reponse) { json_response[:data][:fetchNearMeasures] }
 
   let(:latitude)  { Faker::Address.latitude }
@@ -67,6 +67,10 @@ describe Queries::FetchNearMeasures, type: :request do
       it 'returns a json with a totalCount of 0' do
         expect(query_reponse[:totalCount]).to be_zero
       end
+    end
+
+    context 'when user is not authorized' do
+      include_examples 'without jwt authentication', 'fetchNearMeasures'
     end
   end
 
