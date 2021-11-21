@@ -17,6 +17,7 @@ pt-BR:
 
     models:
       measure: Medição
+      user: Usuário
 
   graphql:
     types:
@@ -90,8 +91,10 @@ pt-BR:
 
   errors:
     custom:
+      invalid_authentication: Autenticação inválida
       invalid_cl_and_pt_in_micrograms: Quantidade de Clorofila e Fósforo devem ser maiores que zero
       invalid_coordinates: Coordenadas inválidas (latitude deve estar entre -90 e +90, longitude entre -180 e 180, inclusive)
+      without_permission: Você não possui permissão para executar esta ação
 
     format: "%{attribute} %{message}"
     messages:
@@ -101,3 +104,4 @@ pt-BR:
       invalid: não é válido
       model_invalid: 'A validação falhou: %{errors}'
       not_a_number: não é um número
+      not_found: não encontrado
