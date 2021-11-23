@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Mutations::CalculateIet, type: :request do
-  subject(:mutation_reponse) { json_response[:data][:calculateIet] }
+  subject(:mutation_response) { json_response[:data][:calculateIet] }
 
   let(:cl_in_micrograms) { 10.0 }
   let(:pt_in_micrograms) { 5.0 }
@@ -32,7 +32,7 @@ describe Mutations::CalculateIet, type: :request do
   describe 'POST' do
     context 'when params are valid' do
       it 'returns a json with calculated iet value and category' do
-        expect(mutation_reponse).to include(
+        expect(mutation_response).to include(
           ietCategory: 'oligotrofico', ietValue: be_within(0.00005).of(51.11907)
         )
       end

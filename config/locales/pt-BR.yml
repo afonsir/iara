@@ -11,6 +11,15 @@ pt-BR:
         location_type: Tipo do local da medição
         updated_at: Data de atualização da medição
 
+      user: &user-translations
+        id: ID do usuário
+        created_at: Data de criação do usuário
+        email: Endereço de email
+        password: Senha
+        password_confirmation: Confirmação de senha
+        token: Token de autenticação
+        updated_at: Data de atualização do usuário
+
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -60,6 +69,11 @@ pt-BR:
           fields:
             <<: *measure-translations
 
+        user_type:
+          description: Usuário
+          fields:
+            <<: *user-translations
+
     mutations:
       calculate_iet:
         description: Cálculo do Índice de Estado Trófico (IET)
@@ -72,6 +86,16 @@ pt-BR:
         description: Criar medição de Índice de Estado Trófico (IET)
         arguments:
           <<: *calculate-iet-mutation-translations
+
+      sign_in:
+        description: Autenticar usuário (sign in)
+        arguments:
+          <<: *user-translations
+
+      sign_up:
+        description: Criar usuário (sign up)
+        arguments:
+          <<: *user-translations
 
     queries:
       fetch_near_measures:
@@ -99,9 +123,14 @@ pt-BR:
     format: "%{attribute} %{message}"
     messages:
       blank: não pode ficar em branco
+      confirmation: não é igual a %{attribute}
       greater_than: deve ser maior que %{count}
       greater_than_or_equal_to: deve ser maior ou igual a %{count}
       invalid: não é válido
       model_invalid: 'A validação falhou: %{errors}'
       not_a_number: não é um número
       not_found: não encontrado
+      taken: já está em uso
+      too_short:
+        one: 'é muito curto (mínimo: 1 caracter)'
+        other: 'é muito curto (mínimo: %{count} caracteres)'
