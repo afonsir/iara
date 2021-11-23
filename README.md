@@ -71,7 +71,7 @@ rails server
 
 7. Utilize o Insomnia (ou ferramenta semelhante), para fazer requisições. O arquivo a seguir, pode ser importado no Insomnia (ele contém exemplos das requisições que podem ser realizadas):
 
-[Acessar Arquivo de Coleções](guides/requests/insomnia-requests.json?raw=true)
+[Acessar Arquivo de Coleções](guides/requests/insomnia-requests.json)
 
 Defina um alias para a API no Insomnia:
 
