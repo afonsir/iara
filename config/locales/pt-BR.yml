@@ -87,6 +87,11 @@ pt-BR:
         arguments:
           <<: *calculate-iet-mutation-translations
 
+      sign_in:
+        description: Autenticar usuário (sign in)
+        arguments:
+          <<: *user-translations
+
       sign_up:
         description: Criar usuário (sign up)
         arguments:
