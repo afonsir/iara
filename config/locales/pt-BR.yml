@@ -87,6 +87,11 @@ pt-BR:
         arguments:
           <<: *calculate-iet-mutation-translations
 
+      sign_up:
+        description: Criar usuário (sign up)
+        arguments:
+          <<: *user-translations
+
     queries:
       fetch_near_measures:
         description: Pesquisa por medições dentro de uma distância (raio) fornecida
